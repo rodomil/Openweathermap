@@ -51,7 +51,7 @@ final class APIManager {
             }.resume()
     }
     
-    static func loadDataPOSTArray<T: Decodable>(structData: [T].Type, url: String, completionHandler: @escaping ([T]?) -> Void) {
+    static func loadDataPOSTArray<T: Decodable>(structData: T.Type, url: String, completionHandler: @escaping (T?) -> Void) {
         APIManager.getDataFromServer(metod: .POST, url: url, inputData: nil) { (data) in
             if let data = data {
                 DispatchQueue.main.async {
